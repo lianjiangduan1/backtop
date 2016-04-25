@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+*
+{
+	margin:0;
+	padding:0;
+}
+.box
+{
+	width:100%;
+	height:3000px;
+	background:#ccc;
+}
+#backtop
+{
+	position:fixed;
+	right:30px;
+	bottom:30px;
+	width:150px;
+	height:30px;
+	background:green;
+	cursor:pointer;
+	text-align: center;
+	line-height: 30px;
+	color:#fff;
+	font-size: 12px;
+	display:none;
+}
+</style>
+</head>
+<body>
+<div class="box"></div>
+<div id="backtop">回到顶部</div>
+<script src="jquery-1.7.2.js"></script>
+<script>
+$(function(){
+	var oScrollTop = $('#backtop');
+	oScrollTop.on('click',function(){
+		var speed = 200;
+		$('html,body').animate({scrollTop:0},speed);
+	});
+	$(window).scroll(function(){
+		if($(window).scrollTop()<=500){
+			oScrollTop.css({display:'none'});
+		}else{
+			oScrollTop.css({display:'block'});
+		}
+	});
+});
+</script>
+</body>
+</html>
